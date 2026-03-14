@@ -1,0 +1,12 @@
+{
+    "Lua.diagnostics.globals": [
+        "projetile",
+        "love",
+        "player",
+        "projectile",
+        "bulletX",
+        "bulletY",
+        "Projectile",
+        "bullet"
+    ]
+}
