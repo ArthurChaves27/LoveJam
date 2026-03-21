@@ -30,12 +30,15 @@ GroundPos = 500
 
             --jump
              if player.y >= GroundPos then
+
                 player.y = GroundPos
                 player.yVelo = 0
                 player.canJump = true
+
             end
 
             if Love.keyboard.isDown("space") and player.canJump then
+                
                 player.yVelo = player.jumpVelo
                 player.canJump = false
 

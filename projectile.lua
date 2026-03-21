@@ -4,6 +4,7 @@ love = require("love")
 
         list = {},
         speed = 1000,
+        radius = 10,
 
         NewBullet = function (x, y, dirX, dirY)
             --Here i'm creating a table of a bullet and adding it to the list
@@ -20,6 +21,18 @@ love = require("love")
             return b
         end,
 
+        CheckRecCol = function (x, y, w, h)
+            for i, b in ipairs(Projectile.list) do
+                if b.x + Projectile.radius >= x and b.x + Projectile.radius <= x + w then
+                    if b.y + Projectile.radius >= y and b.y + Projectile.radius <= y + h then
+                        table.remove(Projectile.list, i)
+                        return true
+                    end
+                else 
+                    return false 
+                end
+            end
+        end,
         
         UpdateProj = function(dt)
             --Go through the list and updating each bullet 
@@ -33,7 +46,7 @@ love = require("love")
                 if b.x < 0 or b.x > love.graphics.getWidth() or
                     b.y < 0 or b.y > love.graphics.getHeight() then
                     table.remove(Projectile.list, i)
-        end
+                end
             end
         end,
 
